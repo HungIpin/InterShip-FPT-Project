@@ -1,0 +1,99 @@
+<h1 mat-dialog-title><strong>Add Question - Multichoice</strong></h1>
+<div mat-dialog-content>
+  <mat-form-field class="example-full-width">
+    <mat-label style="width: 400px;">Question Type (disabled)</mat-label>
+    <input matInput disabled value="Multiple choices">
+  </mat-form-field>
+  <br>
+  <div class="card-body">
+    <h5 class="card-title">Question Text</h5>
+      <ck-editor name="editor1" matInput [(ngModel)]="data.questionText" skin="moono-lisa" language="en" [fullPage]="true"></ck-editor>
+  </div>
+  <br>
+  <mat-radio-group style="width: 400px;" [(ngModel)]="data.questionSetting.displayPoint">
+    <mat-label>Display Point Value while student is taking the exam</mat-label>
+    <br>
+    <br>
+    <mat-radio-button [value]="true">Yes</mat-radio-button>
+    <mat-radio-button [value]="false">No</mat-radio-button>
+  </mat-radio-group>
+
+  <br>
+  <mat-form-field style="width: 400px;">
+    <mat-label>Point</mat-label>
+    <mat-select  [(ngModel)]="data.questionSetting.pointValue">
+      <mat-option [value]="2.0">2.0</mat-option>
+      <mat-option [value]="4.0">4.0</mat-option>
+      <mat-option [value]="6.0">6.0</mat-option>
+      <mat-option [value]="8.0">8.0</mat-option>
+      <mat-option [value]="10.0">10.0</mat-option>
+    </mat-select>
+    <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+  </mat-form-field>
+  <br>
+  <br>
+  <mat-label>Attachment</mat-label>
+  <br>
+  <div class="form-group">
+    <input style="width: 400px;" type="file" id="file" (change)="handleFileInput($event.target.files)">
+  </div>
+  <br>
+  <br>
+  <br>
+  <mat-form-field>
+    <mat-label>Quesion Pool ID</mat-label>
+    <mat-select [(ngModel)]="data.questionPoolId">
+      <mat-option *ngFor='let questionpool of questionpools' [value]="questionpool.id">
+        {{questionpool.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+  <br>
+  <mat-label><strong>Answer</strong></mat-label>
+  <br>
+  <section class="example-section">
+    <span class="example-list-section">
+      <mat-checkbox class="example-margin"
+                    [checked]="allComplete"
+                    (change)="setAll($event.checked)">
+        {{task.name}}
+      </mat-checkbox>
+    </span>
+    <span class="example-list-section">
+      <ul>
+        <li *ngFor="let choice of data.questionChoices; let i=index">
+          <mat-checkbox *ngIf="i==0" [(ngModel)]="choice.isCorrect">A</mat-checkbox>
+          <mat-checkbox *ngIf="i==1" [(ngModel)]="choice.isCorrect">B</mat-checkbox>
+          <mat-checkbox *ngIf="i==2" [(ngModel)]="choice.isCorrect">C</mat-checkbox>
+          <mat-checkbox *ngIf="i==3" [(ngModel)]="choice.isCorrect">D</mat-checkbox>
+          <br>
+          <mat-form-field class="example-form-field" style="width: 450px;">
+            <mat-label>Answer</mat-label>
+            <input [(ngModel)]="choice.choice" matInput type="text">
+            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </li>
+      </ul>
+    </span>
+  </section>
+  <br>
+  <br>
+  <mat-form-field class="example-full-width" style="width: 400px;">
+    <mat-label>Correct Feedback</mat-label>
+    <textarea matInput placeholder="The correct answer is ... because" [(ngModel)]="data.questionSetting.correctFb"></textarea>
+  </mat-form-field>
+  <br>
+  <br>
+  <mat-form-field class="example-full-width" style="width: 400px;">
+    <mat-label>Incorrect Feedback</mat-label>
+    <textarea matInput placeholder="Your answer is incorrect, because ..."  [(ngModel)]="data.questionSetting.inCorrectFb"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button class="btn btn-danger" mat-button (click)="onNoClick()">Cancel</button>
+  <button class="btn btn-success " mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

@@ -1,0 +1,42 @@
+<h1 mat-dialog-title>{{mess}}</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>ID</mat-label>
+    <input matInput [(ngModel)]="data.id" [readonly]="isEdit">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>First Name</mat-label>
+    <input matInput [(ngModel)]="data.firstName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Last Name</mat-label>
+    <input matInput [(ngModel)]="data.lastName">
+  </mat-form-field>
+<br>
+  <mat-radio-group aria-label="Sex" [(ngModel)]="data.sex" >
+    <mat-radio-button  value="Male"> Male</mat-radio-button>
+    <mat-radio-button value="Female">Female</mat-radio-button>
+  </mat-radio-group>
+
+  <div class="form-group">
+    <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+  </div>
+
+  <mat-form-field color="accent" appearance="fill">
+    <mat-label>Date of birth</mat-label>
+    <input [(ngModel)]="data.doB" matInput [matDatepicker]="picker2">
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2 color="primary"></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="data.email">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Phone</mat-label>
+    <input matInput [(ngModel)]="data.phone">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button class="btn btn-success" mat-button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>

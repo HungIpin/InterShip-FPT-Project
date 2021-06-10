@@ -1,0 +1,52 @@
+<h1 mat-dialog-title *ngIf="data.id != ''">Edit Exam</h1>
+<h1 mat-dialog-title *ngIf="data.id == ''">Add Exam</h1>
+
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>ID</mat-label>
+        <input matInput [(ngModel)]="data.id" required [readonly]="isEdit">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="data.name" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput [(ngModel)]="data.description" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Number of Question</mat-label>
+        <input type="number" readonly matInput [(ngModel)]="data.numOfQuestions" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Pass Score</mat-label>
+        <input type="number" matInput [(ngModel)]="data.passScore" required>
+    </mat-form-field>
+
+    <div class="form-group">
+        <mat-label style="size: 10px;">Duration</mat-label>
+        <ngx-duration-picker name="picker" [(value)]="myDuration" (valueChange)="getDuration()" [options]="{ showWeeks: false, showYears: false, showMonths: false, showDays: false, showSeconds: false}"></ngx-duration-picker>
+    </div>
+    
+    <mat-form-field >
+        <mat-label>Rating</mat-label>
+        <input matInput [(ngModel)]="data.rating" type="number" required> 
+    </mat-form-field>
+
+    <mat-form-field >
+        <mat-select class="form-control" [(ngModel)]="data.certificationId" id="selectCertificate" name="selectCertificate" required>
+            <mat-option *ngFor="let certificate of certifications" [value]="certificate.id">
+                {{certificate.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>    
+
+</div>
+<div mat-dialog-actions>
+    <button class="btn btn-success" mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>
+

@@ -1,0 +1,87 @@
+<nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
+  <div class="container">
+    <a class="navbar-brand mr-lg-5" [routerLink]="['/home']">
+      <img src="./assets/img/brand/fpt.png">
+    </a>
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
+          [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbar_global" [ngbCollapse]="isCollapsed">
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand">
+            <a [routerLink]="['/home']">
+              <img src="./assets/img/brand/blue.png">
+            </a>
+          </div>
+          <div class="col-6 collapse-close">
+            <button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed"
+                  [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+        <li class="nav-item dropdown" *ngIf="isAdmin">
+          <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="ni ni-collection d-lg-none"></i>
+            <span class="nav-link-inner--text">You wanna go to ▼</span>
+          </a>
+          <div class="dropdown-menu" >
+            <a [routerLink]="['/dashboard']" class="dropdown-item">Dashboard</a>
+            <a [routerLink]="['/certifications']" class="dropdown-item">Certifications</a>
+            <a [routerLink]="['/skills']" class="dropdown-item">Skills</a>
+            <a [routerLink]="['/exams']" class="dropdown-item">Exams</a>
+            <a [routerLink]="['/users']" class="dropdown-item">Users</a>
+            <a [routerLink]="['/questions']" class="dropdown-item">Questions</a>
+            <a [routerLink]="['/scores']" class="dropdown-item">Scores</a>
+          </div>      
+        </li>
+        <li class="nav-item dropdown" *ngIf="isUser">
+          <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="ni ni-collection d-lg-none" ></i>
+            <span class="nav-link-inner--text" [routerLink]="['/examuser']">Exam</span>
+          </a>     
+        </li>
+      </ul>
+      <ul class="navbar-nav align-items-lg-center ml-lg-auto float-right  ">
+        <li class="nav-item" [hidden]="show">
+          <a type="button"  (click)="onLogin()"  style="background-color:#29648a" class="btn text-white">Login</a>
+        </li>
+        <li class="nav-item" [hidden]="show">
+          <a type="button" (click)="onRegister()" style="background-color:#464866" class="btn text-white">Register</a>
+        </li>
+        <li class="nav-item d-none d-lg-block ml-lg-4">
+        </li>
+        <li class="nav-item">
+          <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+            <li class="nav-item dropdown" >
+              <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+                <i class="ni ni-collection d-lg-none"></i>             
+                <span class="nav-link-inner--text"  *ngIf="isAdmin" style="color:white">Hello,{{username}}</span>
+                <span class="nav-link-inner--text"  *ngIf="isUser" style="color:white">Hello,{{username}}</span>
+              </a>
+              <div class="dropdown-menu" *ngIf="isAdmin">
+                <a [routerLink]="['/user-profile']" class="dropdown-item">Profile</a>
+                <a [routerLink]="['/landing']" class="dropdown-item">Settings</a>
+                <a class="dropdown-item">Create a CVs</a>
+                <a (click)='onLogout()'class="dropdown-item">Sign out</a>              
+              </div>
+              <div class="dropdown-menu" *ngIf="isUser">
+                <a [routerLink]="['/user-profile']" class="dropdown-item">Profile</a>
+                <a [routerLink]="['/landing']" class="dropdown-item">Settings</a>
+                <a class="dropdown-item">Create a CVs</a>
+                <a (click)='onLogout()' [routerLink]="['/home']" class="dropdown-item">Sign out</a>              
+              </div>
+              
+            </li>       
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,9 @@
+.md-datepicker-calendar-pane {
+    z-index: 1200;
+  }
+  .example-form-field {
+    width: 200px;
+  }
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }

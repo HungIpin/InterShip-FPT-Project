@@ -1,0 +1,82 @@
+<h1 mat-dialog-title><strong>Add Question - Numeric Response</strong></h1>
+<div mat-dialog-content>
+    <mat-form-field class="example-full-width">
+        <mat-label style="width: 400px;">Question Type (disabled)</mat-label>
+        <input matInput disabled value="Numeric Response">
+    </mat-form-field>
+    <br>
+    <div class="card-body">
+      <h5 class="card-title">Question Text</h5>
+        <ck-editor name="editor1" matInput [(ngModel)]="data.QuestionText" skin="moono-lisa" language="en" [fullPage]="true"></ck-editor>
+    </div>
+    <br>
+  <mat-radio-group style="width: 400px;">
+    <mat-label>Display Point Value while student is taking the exam</mat-label>
+    <br>
+    <br>
+    <mat-radio-button value="1">Yes</mat-radio-button>
+    <mat-radio-button value="2">No</mat-radio-button>
+  </mat-radio-group>
+  <br>
+  <mat-form-field style="width: 400px;">
+    <mat-label>Point</mat-label>
+    <mat-select>
+      <mat-option value="option">2.0</mat-option>
+      <mat-option value="option">4.0</mat-option>
+      <mat-option value="option">6.0</mat-option>
+      <mat-option value="option">8.0</mat-option>
+      <mat-option value="option">10.0</mat-option>
+    </mat-select>
+    <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+  </mat-form-field>
+  <br>
+  <br>
+  <mat-form-field class="example-full-width" style="width: 400px;">
+    <mat-label>Show Rich-Text Editor (and character count)</mat-label>
+    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+  </mat-form-field>
+  <br>
+  <br>
+  <mat-label>Attachment</mat-label>
+  <br>
+  <div class="form-group">
+    <input style="width: 400px;" type="file" id="file" (change)="handleFileInput($event.target.files)">
+  </div>
+  <br>
+  <mat-form-field style="width: 400px;">
+    <mat-label>Assign To Part</mat-label>
+    <mat-select>
+      <mat-option value="option">1</mat-option>
+      <mat-option value="option">2</mat-option>
+      <mat-option value="option">3</mat-option>
+    </mat-select>
+    <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+  </mat-form-field>
+  <br>
+  <br>
+  <mat-form-field style="width: 400px;">
+    <mat-label>Question Pool</mat-label>
+    <mat-select>
+      <mat-option value="1">QuestionPool1</mat-option>
+      <mat-option value="2">QuestionPool2</mat-option>
+      <mat-option value="3">QuestionPool3</mat-option>
+    </mat-select>
+    <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+  </mat-form-field>
+  <br>
+  <br>
+  <mat-form-field class="example-full-width" style="width: 400px;">
+    <mat-label>Correct Feedback</mat-label>
+    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+  </mat-form-field>
+  <br>
+  <br>
+  <mat-form-field class="example-full-width" style="width: 400px;">
+    <mat-label>Incorrect Feedback</mat-label>
+    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button class="btn btn-danger" mat-button (click)="onNoClick()">Cancel</button>
+    <button class="btn btn-success " mat-button [mat-dialog-close]="" cdkFocusInitial>Ok</button>
+</div>

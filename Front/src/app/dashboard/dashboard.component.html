@@ -1,0 +1,276 @@
+<html>
+<main>
+    <div class="position-relative">
+      <section class="section section-lg section-shaped pb-0">
+        <div class="shape shape-style-1 shape-default">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="container py-lg-md d-flex">
+          <div class="col px-0">
+            <div class="row">
+              <div class="col-lg-6">
+                <!-- <h1 class="display-3  text-white">Welcome back to the system, Admin
+                </h1> -->
+                <!-- <p class="lead text-white">Here’s the main session for authorized user as the role  Admin, where you can manage questions, exams, certificates, ... of the system. Go to the dashboard for further analyses about your system.</p>
+                <div class="btn-wrapper">
+                  <a href="#dashboard"  class="btn btn-info btn-icon mb-3 mb-sm-0 page-scroll">
+                    <span class="btn-inner--icon"><i class="fa fa-code"></i></span>
+                    <span class="btn-inner--text">Go to Dashboard</span>
+                  </a>         
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="separator separator-bottom separator-skew">
+          <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+          </svg>
+        </div>
+      </section>
+    </div>
+</main>
+
+<section id="dashboard" class="section">
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">beenhere</i>
+                        </div>
+                        <p class="card-category">Certificates </p>
+                        <h3 class="card-title">{{certificates}}
+                        </h3>
+                    </div>
+                    <div class="card-footer">
+                        <!-- <div class="stats">
+                            <i class="material-icons">date_range</i> Last 24 Hours
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">assignment</i>
+                        </div>
+                        <p class="card-category">Exams</p>
+                        <h3 class="card-title">{{exams}}</h3>
+                    </div>
+                    <div class="card-footer">
+                        <!-- <div class="stats">
+                            <i class="material-icons">date_range</i> Last 24 Hours
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-danger card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">info_outline</i>
+                        </div>
+                        <p class="card-category">Questions</p>
+                        <h3 class="card-title">{{questions}}</h3>
+                    </div>
+                    <div class="card-footer">
+                        <!-- <div class="stats">
+                            <i class="material-icons">update</i> Just Updated                        
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-info card-header-icon">
+                        <div class="card-icon">
+                            <i class="fa fa-twitter"></i>
+                        </div>
+                        <p class="card-category">Users</p>
+                        <h3 class="card-title">+{{users}}</h3>
+                    </div>
+                    <div class="card-footer">
+                        <!-- <div class="stats">
+                            <i class="material-icons">update</i> Total users
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-chart">
+                    <div class="card-header card-header-success">
+                        <div class="ct-chart" id="topCertificateChart"></div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Our Top 5 Certificates</h4>
+                        <p class="card-category">
+                            <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today taken times.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">access_time</i> updated 4 minutes ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-chart">
+                    <div class="card-header card-header-warning">
+                        <div class="ct-chart" id="websiteViewsChart"></div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Number of exams </h4>
+                        <p class="card-category">The amount of exams in each of our top certificate</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">access_time</i> updated 4 minutes ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-chart">
+                    <div class="card-header card-header-danger">
+                        <div class="ct-chart" id="topExamPieChart"></div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Our Top 5 Rated Exams</h4>
+                        <p class="card-category">The top 5 of exams voted by users</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">access_time</i> updated 4 minutes ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- <div class="col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-tabs card-header-primary">
+                        <div class="nav-tabs-navigation">
+                            <div class="nav-tabs-wrapper">
+                                <span class="nav-tabs-title">Recently:</span>
+                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
+                                            <i class="material-icons">event_notes</i> Exams
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a mat-button class="nav-link" href="#messages" data-toggle="tab">
+                                            <i class="material-icons">storage</i> Pools
+                                            <div class="ripple-container"></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="profile">
+                                <table class="table">
+                                    <tbody>
+                                        <div *ngIf="recentExams.length == 0" class="justify-content-center">No data recently</div>
+                                        <ng-container *ngIf="recentExams.length > 0">
+                                            <tr *ngFor="let exam of recentExams">
+                                                <td>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" value="" checked>
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>{{exam.account.username}} created exam "{{exam.name}}"</td>
+                                                <td class="td-actions text-right">
+                                                    <div class="text-info">{{calculateDiff(exam.createdDate)}}</div>
+                                                </td>
+                                            </tr>
+                                        </ng-container>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="messages">
+                                <table class="table">
+                                    <tbody>
+                                        <div *ngIf="recentPools.length == 0" class="justify-content-center">No data recently</div>
+                                        <ng-container *ngIf="recentPools.length > 0">
+                                            <tr *ngFor="let pool of recentPools">
+                                                <td>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" value="" checked>
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>{{pool.account.username}} created question pool "{{pool.name}}"</td>
+                                                <td class="td-actions text-right">
+                                                    <div class="text-info">{{calculateDiff(pool.createdDate)}}</div>
+                                                </td>
+                                            </tr>
+                                        </ng-container>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-warning">
+                        <h4 class="card-title">Admin accounts</h4>
+                        <p class="card-category">Including blocked accounts</p>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                                <th>Username</th>
+                                <th>Name</th>
+                                <th>Country</th>
+                                <th>Is Active</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let admin of admins">
+                                    <td>{{admin.account.username}}</td>
+                                    <td>{{admin.firstName}} {{admin.lastName}}</td>
+                                    <td>{{admin.country}}</td>
+                                    <td>
+                                        <div *ngIf="admin.account.isActive">
+                                            <i class="fa fa-check-circle"></i>
+                                       </div>
+                                       <div *ngIf="!admin.account.isActive">
+                                           <i class="fa fa-ban"></i>
+                                       </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+<script src="js/scrolling-nav.js"></script>
+
+</html>

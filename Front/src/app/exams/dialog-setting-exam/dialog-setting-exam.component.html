@@ -1,0 +1,181 @@
+<div mat-dialog-content>
+    <div class="container">
+        
+        <h1 class="text-center my-5"  >Exam Setting</h1>
+        
+            <div id="accordion1" role="tablist">
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingOne1">
+                      <h5 class="mb-0"> <a data-toggle="collapse" href="#collapseOne1" role="button" aria-expanded="true" aria-controls="collapseOne1" > Availability and Submissions </a> </h5>
+                    </div>
+                <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordion1">
+                <div class="form-group ">
+                    
+
+                    <label for="inputPassword" class="pl-1" style="font-weight: bolder">Password for the exam</label>
+                    <div class="">
+                      <input matInput [(ngModel)]="data.password" type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                    
+
+                   
+                    <label class="pl-1" style="font-weight: bolder">The number of submissions allowed</label>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                          <input  type="radio" class="form-check-input" name="optradio">Unlimited
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="optradio">Only submissions allowed
+                        </label>
+                        <input matInput [(ngModel)]="data.numOfSubmissions" class="ml-2" type="number">
+                      </div>
+                   
+
+                      <label class="pl-1" style="font-weight: bolder">Autosubmit</label>
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1">Autosubmit saved student work after latest acceptance date</label>
+                      </div>
+
+                      <label for="" class="pl-1" style="font-weight: bolder">Exam ID</label>
+                      <div class="">
+                        <input matInput [(ngModel)]="data.examId" required [readonly]="isEdit" type="text" class="form-control" >
+                      </div>
+
+                      <label for="" class="pl-1" style="font-weight: bolder">Available Date</label>
+                        <div class="">
+                        <input matInput [matDatepicker]="picker" [(ngModel)]="data.availableDate" type="datetime-local" class="form-control">
+                        </div>
+                       
+                        <label for="" class="pl-1" style="font-weight: bolder">Due Date</label>
+                        <div class="">
+                        <input matInput [matDatepicker]="picker" [(ngModel)]="data.dueDate" type="datetime-local" class="form-control">
+                        </div>
+                   
+                      <label class="pl-1" style="font-weight: bolder">Question Scores</label>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="optradio">Show question point value during assessment
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="optradio">Hide question point value during assessment
+                        </label>
+                      </div>
+                </div>
+            </div>
+           </div>
+          <div class="card">
+            <div class="card-header" role="tab" id="headingTwo1">
+              <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#collapseTwo1" role="button" aria-expanded="false" aria-controls="collapseTwo1"> Grading and Feedback </a> </h5>
+            </div>
+            <div id="collapseTwo1" class="collapse" role="tabpanel" aria-labelledby="headingTwo1" data-parent="#accordion1">
+                <label class="pl-1" style="font-weight: bolder">If multiple submissions, record the</label>
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="optradio">highest score
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="optradio">last score
+                    </label>
+                  </div>
+                   <label class="pl-1" style="font-weight: bolder">Anonymous Grading</label>
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck2">
+                    <label class="custom-control-label" for="customCheck2">Hide student identity from grader</label>
+                  </div>
+                  <label class="pl-1" style="font-weight: bolder">Gradebook Options</label>
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck3">
+                    <label class="custom-control-label" for="customCheck3">Send assessment score to Gradebook immediately, regardless of options below</label>
+                  </div>
+                 
+                  <label for="" class="pl-1" style="font-weight: bolder">FbDisplayAfter</label>
+                        <div class="">
+                        <input   matInput [matDatepicker]="picker" [(ngModel)]="data.fbDisplayAfter" type="datetime-local" class="form-control">
+                        </div>
+                        
+                 <label  for="" class="pl-1" style="font-weight: bolder">FbDisplayBefore</label>
+                        <div class="">
+                        <input   matInput [matDatepicker]="picker" [(ngModel)]="data.fbDisplayBefore" type="datetime-local" class="form-control">
+                        </div>     
+                  
+                  <label class="pl-1" style="font-weight: bolder">Set how feedback will be authored</label>
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="optradio">Question-Level Feedback
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="optradio">Selection-Level (A,B,C...) Feedback
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="optradio">Both
+                    </label>
+                  </div>
+                  <label class="pl-1" style="font-weight: bolder">Set the type of feedback a student receives</label>
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="optradio">No Feedback will be displayed to the student
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="optradio">Immediate Feedback
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="optradio">Feedback on submission
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="optradio">Feedback will be displayed to the student on specific dates
+                    </label>
+                  </div>
+            </div>
+      </div>
+          <div class="card">
+            <div class="card-header" role="tab" id="headingThree1">
+              <h5 class="mb-0"> <a class="collapsed" data-toggle="collapse" href="#collapseThree1" role="button" aria-expanded="false" aria-controls="collapseThree1"> Layout and Appearance </a> </h5>
+            </div>
+            <div id="collapseThree1" class="collapse" role="tabpanel" aria-labelledby="headingThree1" data-parent="#accordion1">
+                <label class="pl-1" style="font-weight: bolder">Navigation</label>
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="optradio">Linear access to questions with NO return to previous pages. (There are only "Next" buttons to go forward. There is NO Table of Contents page.)
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="optradio">Random access to questions from a Table of Contents. (There are "Next" and "Previous" buttons on each page for navigation.)
+                    </label>
+                  </div>
+                  <label class="pl-1" style="font-weight: bolder">Numbering</label>
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="optradio">Continuous numbering between parts
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="optradio">Restart numbering for each part
+                    </label>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
+<div mat-dialog-actions>
+    <button class="btn btn-success" mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>

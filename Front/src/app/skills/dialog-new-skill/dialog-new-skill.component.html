@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>{{mess}}</h1>
+<div mat-dialog-content>
+  <p></p>
+  <mat-form-field>
+    <mat-label>ID</mat-label>
+    <input matInput [(ngModel)]="data.Id" [readonly]="isEdit">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.Name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input matInput [(ngModel)]="data.Description">
+  </mat-form-field>
+
+  <div class="form-group">
+    <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+  </div>
+
+</div>
+<div mat-dialog-actions>
+  <button class="btn btn-danger" mat-button (click)="onNoClick()">Cancel</button>
+  <button class="btn btn-success" mat-button [mat-dialog-close]="{ Id:data.Id, Name: data.Name, Description: data.Description, Image: data.Image}" cdkFocusInitial>Ok</button>
+</div>

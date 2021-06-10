@@ -1,0 +1,93 @@
+<main class="profile-page">
+  <section class="section section-lg section-shaped pb-250">
+    <div class="shape shape-style-1 shape-primary alpha-4">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <!-- SVG separator -->
+    <div class="separator separator-bottom separator-skew">
+      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+      </svg>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="card card-profile shadow mt--300 d-inline-block" >
+        <div class="px-4">
+          <div class="row text-center">
+            <div class="col-lg-3 order-lg-1">
+              <div class="card-profile-image text-lg-left">
+                <img src="./assets/images/exam.jpg" class="rounded-circle">
+              </div>
+            </div>
+ 
+            <div class="col-lg-6 order-lg-2">
+              <div class="card-profile-stats d-flex justify-content-center">
+                <h3 class="mt-3 " >Exam Management</h3>
+              </div>
+            </div>
+            <div class="col-lg-3 order-lg-3 text-lg-right align-self-lg-center">
+              <div class="card-profile-actions py-8 mt-lg-2">
+                <a href="javascript:void(0)" class="btn btn-link text-primary" style="font-size: 18px;" (click)="clearData(); openDialog()">New exam </a>  
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-3 border-top text-center">
+            <div class="row justify-content-center">
+                <!-- Code here -->   
+                <section style="margin-top: 40px;">
+                  <div class="container">
+                  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="table" class="table" style="width:1000px;">
+                      <thead class="thead-light">
+                        <tr>
+                          <th scope="col">ID</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">No. of Questions</th>
+                          <th scope="col">Pass Score</th>
+                          <th scope="col">Duration</th>
+                          <th scope="col">Created Date</th>
+                          <th scope="col">Ratings</th>
+                          <th scope="col">Certificate</th>
+                          <th scope="col">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody >
+                        <tr *ngFor='let exam of dataset'>
+                          <td>{{exam.id}}</td>
+                          <td>{{exam.name}}</td>
+                          <td>{{exam.numOfQuestions}}</td>
+                          <td>{{exam.passScore}}</td>
+                          <td>{{convertToHour(exam.duration)}}</td>
+                          <td>{{exam.createdDate | date:'dd/MM/yyyy'}}</td>
+                          <td>{{exam.rating}}</td>
+                          <td>{{exam.certification.name}}</td>
+                          <td>
+                              <button type="button" class="btn btn-info btn-sm" (click)="clearData(); editExam(exam)">
+                                <i class="fa fa-edit"></i>
+                              </button>
+                              <button type="button" class="btn btn-danger btn-sm" (click)="deleteExam(exam.id)">
+                                <i class="fa fa-remove"></i>
+                              </button>
+                              <button type="button" class="btn btn-link btn-sm" (click)="onSearch(exam.id)"><i class="fa  fa-external-link"></i></button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  </section>
+              <!--end-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
